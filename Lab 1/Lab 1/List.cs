@@ -14,5 +14,16 @@ namespace Lab_1
         {
             Length = 0;
         }
+        
+        public override string ToString()
+        {
+            if (IsEmpty) return "List is empty";
+            string result = "";
+            for (var i = First; i != null; i = i.Next)
+            {
+                result += $"{i.Data}\t";
+            }
+            return result;
+        }
     }
 }
