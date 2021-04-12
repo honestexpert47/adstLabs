@@ -9,5 +9,10 @@ namespace Lab_1
         public Node<T> First { get; private set; }
         
         public bool IsEmpty => Length == 0;
+        
+        public List()
+        {
+            Length = 0;
+        }
     }
 }
