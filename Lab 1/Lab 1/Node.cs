@@ -5,5 +5,10 @@ namespace Lab_1
         public T Data { get; }
         
         public Node<T> Next { get; set; }
+        
+        public Node(T value)
+        {
+            Data = value;
+        }
     }
 }
