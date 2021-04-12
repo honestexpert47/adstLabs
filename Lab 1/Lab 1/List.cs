@@ -10,6 +10,23 @@ namespace Lab_1
         
         public bool IsEmpty => Length == 0;
         
+        private Node<T> this[int position]
+        {
+            get
+            {
+                if (!IsEmpty && position < Length)
+                {
+                    int counter = 0;
+                    for (Node<T> i = First; i != null; i = i.Next)
+                    {
+                        if (counter == position) return i;
+                        counter++;
+                    }
+                }
+                throw new Exception("Incorrect position!");
+            }
+        }
+        
         public List()
         {
             Length = 0;
