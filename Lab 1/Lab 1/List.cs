@@ -77,6 +77,15 @@ namespace Lab_1
             return -1;
         }
         
+        public bool IndexOf(T item, Node<T> first)
+        {
+            if (first == null)
+                return false;
+            if (first.Data.Equals(item))
+                return true;
+            return IndexOf(item, first.Next);
+        }
+        
         public void Delete(T item)
         {
             int position = IndexOf(item);
