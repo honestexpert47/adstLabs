@@ -1,6 +1,8 @@
+using System;
+
 namespace Lab_1
 {
-    public class List
+    public class List<T> where T : IComparable
     {
         
     }
