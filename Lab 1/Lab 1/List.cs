@@ -76,5 +76,29 @@ namespace Lab_1
             }
             return -1;
         }
+        
+        public void Delete(T item)
+        {
+            int position = IndexOf(item);
+            if (position != -1)
+            {
+                if (position == 0)
+                {
+                    First = First.Next;
+                }
+                else if (position == Length - 1)
+                {
+                    this[Length - 2].Next = null;
+                }
+                else
+                {
+                    var prev = this[position - 1];
+                    var next = this[position + 1];
+                    prev.Next = next;
+                }
+                Length--;
+            }
+            else Console.WriteLine("Item Doesn't exist in the list.");
+        }
     }
 }
