@@ -65,5 +65,16 @@ namespace Lab_1
             }
             Length++;
         }
+        
+        public int IndexOf(T item)
+        {
+            int counter = 0;
+            for (Node<T> i = First; i != null; i = i.Next)
+            {
+                if (i.Data.Equals(item)) return counter;
+                counter++;
+            }
+            return -1;
+        }
     }
 }
