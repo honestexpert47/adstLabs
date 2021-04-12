@@ -25,5 +25,28 @@ namespace Lab_1
             }
             return result;
         }
+        
+        public void Add(T item)
+        {
+            Node<T> previous = null;
+            var following = First;
+            while (following != null && following.Data.CompareTo(item) == -1)
+            {
+                previous = following;
+                following = following.Next;
+            }
+            Node<T> addedNode = new Node<T>(item);
+            if (previous == null)
+            {
+                addedNode.Next = First;
+                First = addedNode;
+            }
+            else
+            {
+                previous.Next = addedNode;
+                addedNode.Next = following;
+            }
+            Length++;
+        }
     }
 }
