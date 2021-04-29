@@ -28,5 +28,15 @@ namespace Lab_3
             }
             return res;
         }
+
+        public void Add(T item)
+        {
+            if (IsFull)
+            {
+                Console.WriteLine("List is full.");
+                return;
+            }
+            _array[Count++] = item;
+        }
     }
 }
