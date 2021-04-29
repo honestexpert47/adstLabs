@@ -17,5 +17,16 @@ namespace Lab_3
             _array = new T[max];
             Count = 0;
         }
+
+        public override string ToString()
+        {
+            if (IsEmpty) return "List is empty.";
+            var res = "";
+            for (int i = 0; i < Count; i++)
+            {
+                res += $"_array[i]\t";
+            }
+            return res;
+        }
     }
 }
