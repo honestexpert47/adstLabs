@@ -38,5 +38,15 @@ namespace Lab_3
             }
             _array[Count++] = item;
         }
+        
+        public void Remove()
+        {
+            if (IsEmpty)
+            {
+                Console.WriteLine("List is empty.");
+                return;
+            }
+            Count--;
+        }
     }
 }
