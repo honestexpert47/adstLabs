@@ -7,5 +7,7 @@ namespace Lab_3
         private T[] _array;
         
         public int Count { get; private set; }
+
+        public bool IsEmpty => Count == 0;
     }
 }
