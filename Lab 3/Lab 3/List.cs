@@ -24,7 +24,7 @@ namespace Lab_3
             var res = "";
             for (int i = 0; i < Count; i++)
             {
-                res += $"_array[i]\t";
+                res += $"{_array[i]}\t";
             }
             return res;
         }
@@ -47,6 +47,38 @@ namespace Lab_3
                 return;
             }
             Count--;
+        }
+
+        public void HeapSort()
+        {
+            
+        }
+
+        private void Heapify(int i, int n)
+        {
+            int left = 2 * i + 1;
+            int right = 2 * i + 2;
+
+            int max = i;
+
+            if (left <= n && _array[left].CompareTo(_array[max]) == 1)
+            {
+                max = left;
+            }
+
+            if (right <= n && _array[right].CompareTo(_array[max]) == 1)
+            {
+                max = right;
+            }
+
+            if (max != i)
+            {
+                T temp = _array[max];
+                _array[max] = _array[i];
+                _array[i] = temp;
+                
+                Heapify(max, n);
+            }
         }
     }
 }
