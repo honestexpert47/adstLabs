@@ -51,7 +51,20 @@ namespace Lab_3
 
         public void HeapSort()
         {
-            
+            int n = Count;
+            for (int i = n / 2 - 1; i >= 0; i--)
+            {
+                Heapify(i, n);
+            }
+
+            for (int i = n - 1; i >= 0; i--)
+            {
+                T temp = _array[i];
+                _array[i] = _array[0];
+                _array[0] = temp;
+                
+                Heapify(0, --n);
+            }
         }
 
         private void Heapify(int i, int n)
@@ -61,12 +74,12 @@ namespace Lab_3
 
             int max = i;
 
-            if (left <= n && _array[left].CompareTo(_array[max]) == 1)
+            if (left < n && _array[left].CompareTo(_array[max]) == 1)
             {
                 max = left;
             }
 
-            if (right <= n && _array[right].CompareTo(_array[max]) == 1)
+            if (right < n && _array[right].CompareTo(_array[max]) == 1)
             {
                 max = right;
             }
