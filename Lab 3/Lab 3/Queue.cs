@@ -26,5 +26,32 @@ namespace Lab_3
             }
             return res;
         }
+        
+        private void Heapify(int i, int n)
+        {
+            int left = 2 * i + 1;
+            int right = 2 * i + 2;
+
+            int max = i;
+
+            if (left < n && _array[left].Priority > _array[max].Priority)
+            {
+                max = left;
+            }
+
+            if (right < n && _array[right].Priority > _array[max].Priority)
+            {
+                max = right;
+            }
+
+            if (max != i)
+            {
+                var temp = _array[max];
+                _array[max] = _array[i];
+                _array[i] = temp;
+                
+                Heapify(max, n);
+            }
+        }
     }
 }
