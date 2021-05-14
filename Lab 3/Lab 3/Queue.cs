@@ -1,3 +1,5 @@
+using System;
+
 namespace Lab_3
 {
     public class Queue<T>
@@ -51,6 +53,29 @@ namespace Lab_3
                 _array[i] = temp;
                 
                 Heapify(max, n);
+            }
+        }
+
+        public void Enqueue(T value, int priority)
+        {
+            if (IsFull)
+            {
+                Console.WriteLine("Queue is full.");
+                return;
+            }
+
+            if (IsEmpty)
+            {
+                _array[Count++] = new Node<T>(value, priority);
+            }
+
+            else
+            {
+                _array[Count++] = new Node<T>(value, priority);
+                for (int i = Count / 2 - 1; i >= 0; i--)
+                {
+                    Heapify(i, Count);
+                }
             }
         }
     }
