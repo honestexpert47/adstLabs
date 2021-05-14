@@ -78,5 +78,27 @@ namespace Lab_3
                 }
             }
         }
+
+        public T Dequeue()
+        {
+            if (IsEmpty)
+            {
+                Console.WriteLine("Queue is empty.");
+                return default;
+            }
+            
+            var temp = _array[Count - 1];
+            _array[Count - 1] = _array[0];
+            _array[0] = temp;
+
+            T result = _array[--Count].Data;
+            
+            for (int i = Count / 2 - 1; i >= 0; i--)
+            {
+                Heapify(i, Count);
+            }
+
+            return result;
+        }
     }
 }
