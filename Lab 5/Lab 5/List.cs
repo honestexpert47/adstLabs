@@ -8,5 +8,7 @@ namespace Lab_5
         
         public int Count { get; private set; }
         
+        public bool IsEmpty => Count == 0;
+
     }
 }
