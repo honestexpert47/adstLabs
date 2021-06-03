@@ -11,6 +11,11 @@ namespace Lab_5
         public bool IsEmpty => Count == 0;
 
         public bool IsFull => Count == _array.Length;
-
+        
+        public List(int max)
+        {
+            _array = new T[max];
+            Count = 0;
+        }
     }
 }
