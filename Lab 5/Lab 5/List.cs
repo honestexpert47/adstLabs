@@ -28,6 +28,15 @@ namespace Lab_5
             }
             return res;
         }
+
+        public int IndexOf(T item)
+        {
+            for (int i = 0; i < Count; i++)
+            {
+                if (item.Equals(_array[i])) return i;
+            }
+            return -1;
+        }
         
         public void Add(T item)
         {
@@ -47,6 +56,39 @@ namespace Lab_5
                 return;
             }
             Count--;
+        }
+
+        public void Separate(List<int> list)
+        {
+            var temp = new int[_array.Length];
+
+            int last = 0;
+            for (int i = 0; i < list.Count; i++)
+            {
+                if (IsPrime(list._array[i]))
+                {
+                    temp[last++] = list._array[i];
+                }
+            }
+            
+            for (int i = 0; i < list.Count; i++)
+            {
+                if (!IsPrime(list._array[i]))
+                {
+                    temp[last++] = list._array[i];
+                }
+            }
+
+            list._array = temp;
+        }
+
+        private bool IsPrime(int a)
+        {
+            for(var i = 2; i <= a / 2; i++)
+            {
+                if(a % i == 0) return false;
+            }
+            return true;
         }
     }
 }
