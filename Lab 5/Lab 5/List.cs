@@ -6,5 +6,7 @@ namespace Lab_5
     {
         private T[] _array;
         
+        public int Count { get; private set; }
+        
     }
 }
